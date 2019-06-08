@@ -1,24 +1,17 @@
-# README
+# Registr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ Registr is a smart posts aggregator and library for your team.
 
-Things you may want to cover:
+____
 
-* Ruby version
+## Start dev
 
-* System dependencies
+Install gems
+```sudo bundle install```
 
-* Configuration
+Migrate database
+```sudo rails db:migrate```
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Start API server
+```sudo rails server```

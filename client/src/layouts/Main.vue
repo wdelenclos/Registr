@@ -59,14 +59,13 @@
             <!-- Begin Menu -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <v-link class="nav-link"  href="/">
-                  Discover <span class="sr-only">(current)</span></v-link>
+                    <v-link class="nav-link"  href="/">Discover</v-link>
                 </li>
                 <li class="nav-item">
-                      <v-link class="nav-link" href="/">Login</v-link>
+                      <v-link class="nav-link" href="/login">Login</v-link>
                 </li>
                 <li class="nav-item">
-                    <v-link class="nav-link"  href="/">Create account (it's free)</v-link>
+                    <v-link class="nav-link"  href="/register">Create account (it's free)</v-link>
                 </li>
             </ul>
             <!-- End Menu -->

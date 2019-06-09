@@ -4,14 +4,15 @@
 
 ____
 
-## Start dev
+### File structure
 
-Install gems
-```sudo bundle install```
+Client Front-end
+```/client ```
 
-Migrate database
-```sudo rails db:migrate```
+Server API Ruby
+```/api ```
 
 
-Start API server
-```sudo rails server```
+### Contribute
+
+Depending on the project you are contributing, Prefix your Commit message with a second tag "[Client]" or "[Server]"

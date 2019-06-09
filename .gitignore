@@ -2,3 +2,10 @@
 .idea/
 .DS_Store
 
+/client/.DS_Store
+/api/.DS_Store
+nodes_modules/*
+
+/client/nodes_modules
+/api/nodes_modules
+client/node_modules/

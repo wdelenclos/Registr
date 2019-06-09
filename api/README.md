@@ -1,6 +1,7 @@
-# Registr
+# Registr API
 
  Registr is a smart posts aggregator and library for your team.
+ This repository is the API based on ruby&rails for Registr
 
 ____
 

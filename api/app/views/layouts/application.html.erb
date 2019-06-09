@@ -1,130 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="assets/img/favicon.ico">
-    <title>Registr - The team intelligence library</title>
+<html>
+  <head>
+    <title>RailsRestApi</title>
+    <%= csrf_meta_tags %>
 
-    <!-- Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
+  </head>
 
-<!-- Begin Nav
-================================================== -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="container">
-        <!-- Begin Logo -->
-        <a class="navbar-brand" href="index.html">
-            <svg width="140" viewBox="0 0 501 109" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 59.5C0 44.3122 12.3122 32 27.5 32L86.6772 32C101.865 32 114.177 44.3122 114.177 59.5V59.5C114.177 74.6878 101.865 87 86.6772 87H27.5C12.3122 87 0 74.6878 0 59.5V59.5Z"
-                      fill="url(#paint0_linear)"/>
-                <path d="M45.2531 59.5C45.2531 44.3122 57.5653 32 72.7531 32L131.93 32C147.118 32 159.43 44.3122 159.43 59.5V59.5C159.43 74.6878 147.118 87 131.93 87H72.7531C57.5653 87 45.2531 74.6878 45.2531 59.5V59.5Z"
-                      fill="url(#paint1_linear)"/>
-                <path d="M90.5062 59.5C90.5062 44.3122 102.818 32 118.006 32H147.943C163.131 32 175.443 44.3122 175.443 59.5V59.5C175.443 74.6878 163.131 87 147.943 87H118.006C102.818 87 90.5062 74.6878 90.5062 59.5V59.5Z"
-                      fill="url(#paint2_linear)"/>
-                <path d="M228.434 65.433V87H214.925V31.542H236.808C243.233 31.542 248.237 33.201 251.818 36.519C255.399 39.837 257.19 43.8397 257.19 48.527C257.19 51.7397 256.216 54.8734 254.267 57.928C252.318 60.9827 249.132 63.142 244.708 64.406L258.296 87H242.496L230.014 65.433H228.434ZM228.434 41.812V55.163H236.808C238.862 55.163 240.468 54.5574 241.627 53.346C242.838 52.1347 243.444 50.5547 243.444 48.606C243.444 46.6047 242.838 44.972 241.627 43.708C240.416 42.444 238.809 41.812 236.808 41.812H228.434Z"
-                      fill="#21303F"/>
-                <path d="M286.418 87.553C279.992 87.553 274.726 85.499 270.618 81.391C266.51 77.2304 264.456 71.7267 264.456 64.88C264.456 58.0334 266.483 52.5824 270.539 48.527C274.647 44.4717 279.94 42.444 286.418 42.444C292.896 42.444 298.268 44.4454 302.534 48.448C306.8 52.4507 308.933 58.007 308.933 65.117C308.933 66.6444 308.827 68.0664 308.617 69.383H278.281C278.544 71.3317 279.413 72.938 280.888 74.202C282.362 75.4134 283.942 76.019 285.628 76.019C287.366 76.019 288.656 75.861 289.499 75.545C290.341 75.1764 290.947 74.834 291.316 74.518C291.737 74.1494 292.264 73.57 292.896 72.78H307.511C306.247 77.204 303.719 80.7854 299.927 83.524C296.135 86.21 291.632 87.553 286.418 87.553ZM294.871 60.93C294.66 58.876 293.765 57.217 292.185 55.953C290.605 54.6364 288.735 53.978 286.576 53.978C284.416 53.978 282.599 54.6364 281.125 55.953C279.65 57.217 278.728 58.876 278.36 60.93H294.871Z"
-                      fill="#21303F"/>
-                <path d="M320.217 81.233C316.319 77.0197 314.371 71.6214 314.371 65.038C314.371 58.4547 316.319 53.0564 320.217 48.843C324.114 44.577 328.854 42.444 334.437 42.444C340.072 42.444 344.391 44.5244 347.393 48.685V42.918H360.902V86.763C360.902 92.925 359.216 98.06 355.846 102.168C354.16 104.275 351.843 105.907 348.894 107.066C345.997 108.225 342.626 108.804 338.782 108.804C332.04 108.804 326.695 107.435 322.745 104.696C318.795 101.957 316.556 97.7704 316.03 92.135H329.302C330.566 95.453 333.726 97.112 338.782 97.112C341.257 97.112 343.311 96.2694 344.944 94.584C346.576 92.9514 347.393 90.3444 347.393 86.763V80.601C344.127 85.2357 339.756 87.553 334.279 87.553C328.801 87.553 324.114 85.4464 320.217 81.233ZM344.47 73.017C346.418 71.121 347.393 68.435 347.393 64.959C347.393 61.483 346.418 58.8234 344.47 56.98C342.521 55.084 340.283 54.136 337.755 54.136C335.227 54.136 332.988 55.084 331.04 56.98C329.091 58.876 328.117 61.562 328.117 65.038C328.117 68.514 329.091 71.2 331.04 73.096C332.988 74.9394 335.227 75.861 337.755 75.861C340.283 75.861 342.521 74.913 344.47 73.017Z"
-                      fill="#21303F"/>
-                <path d="M385.095 37.941C383.567 39.4684 381.698 40.232 379.486 40.232C377.274 40.232 375.404 39.4684 373.877 37.941C372.349 36.4137 371.586 34.544 371.586 32.332C371.586 30.0674 372.349 28.1714 373.877 26.644C375.404 25.1167 377.274 24.353 379.486 24.353C381.698 24.353 383.567 25.1167 385.095 26.644C386.622 28.1714 387.386 30.0674 387.386 32.332C387.386 34.544 386.622 36.4137 385.095 37.941ZM372.771 87V42.918H386.28V87H372.771Z"
-                      fill="#21303F"/>
-                <path d="M395.151 56.19C395.151 52.2927 396.81 49.0274 400.128 46.394C403.446 43.7607 407.922 42.444 413.558 42.444C419.246 42.444 423.828 43.7344 427.304 46.315C430.78 48.8957 432.623 52.4244 432.834 56.901H419.009C418.851 55.3737 418.324 54.3467 417.429 53.82C416.533 53.2407 415.19 52.951 413.4 52.951C409.871 52.951 408.107 54.0307 408.107 56.19C408.107 58.1387 410.266 59.4817 414.585 60.219C418.956 60.9564 422.932 62.0887 426.514 63.616C428.357 64.3534 429.884 65.591 431.096 67.329C432.36 69.0144 432.992 71.0947 432.992 73.57C432.992 77.678 431.227 81.0487 427.699 83.682C424.17 86.2627 419.72 87.553 414.348 87.553C408.976 87.553 404.499 86.3417 400.918 83.919C397.336 81.4437 395.388 77.8097 395.072 73.017H408.897C409.265 75.703 411.161 77.046 414.585 77.046C416.165 77.046 417.455 76.6774 418.456 75.94C419.509 75.2027 420.036 74.2547 420.036 73.096C420.036 71.9374 419.167 71.0157 417.429 70.331C415.743 69.6464 413.689 69.067 411.267 68.593C408.844 68.119 406.395 67.5397 403.92 66.855C401.497 66.1177 399.417 64.88 397.679 63.142C395.993 61.3514 395.151 59.034 395.151 56.19Z"
-                      fill="#21303F"/>
-                <path d="M460.696 75.545H465.515V87H458.642C453.691 87 449.847 85.9204 447.108 83.761C444.422 81.549 443.079 77.7834 443.079 72.464V54.136H438.971V42.918H443.079V32.174H456.588V42.918H465.436V54.136H456.588V72.464C456.588 74.518 457.957 75.545 460.696 75.545Z"
-                      fill="#21303F"/>
-                <path d="M488.27 42.918V51.134C491.43 45.3407 495.643 42.444 500.91 42.444V56.19H497.592C494.485 56.19 492.141 56.9274 490.561 58.402C489.034 59.8767 488.27 62.4574 488.27 66.144V87H474.761V42.918H488.27Z"
-                      fill="#21303F"/>
-                <defs>
-                    <linearGradient id="paint0_linear" x1="0" y1="59.8481" x2="62.3101" y2="59.8481"
-                                    gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#CB26F4"/>
-                        <stop offset="1" stop-color="#5266EE"/>
-                    </linearGradient>
-                    <linearGradient id="paint1_linear" x1="45.2531" y1="59.8481" x2="210.286" y2="57.6708"
-                                    gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#0AD3CD"/>
-                        <stop offset="1" stop-color="#FF099E"/>
-                    </linearGradient>
-                    <linearGradient id="paint2_linear" x1="90.5062" y1="59.8481" x2="227.502" y2="67.1029"
-                                    gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#FBBA24"/>
-                        <stop offset="1" stop-color="#FF099E"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </a>
-        <!-- End Logo -->
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <!-- Begin Menu -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Discover <span class="sr-only">(current)</span></a>
-                </li>
-                  <%if current_user %>
-
-                      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-
-                    <%else %>
-
-                      <%= link_to 'Create account (it\'s free)', new_user_registration_path %>
-
-                      <%= link_to 'Sign in', new_user_session_path %>
-
-                    <%end %>
-               
-            </ul>
-            <!-- End Menu -->
-        </div>
-    </div>
-</nav>
-<!-- End Nav
-================================================== -->
-     <%= render 'layouts/alerts' %>
+  <body>
     <%= yield %>
-
-<!-- /.container -->
-<div class="container">
-    <div class="footer">
-        <p class="pull-left">
-            Copyright &copy; 2019 Registr
-        </p>
-        <p class="pull-right">
-            <a target="_blank" href="https://www.wowthemes.net">Twitter</a>
-            <a target="_blank" href="https://www.wowthemes.net">Legal</a>
-            <a target="_blank" href="https://www.wowthemes.net">Conditions</a>
-            <a target="_blank" href="https://www.wowthemes.net">Team</a>
-        </p>
-        <div class="clearfix">
-        </div>
-    </div>
-</div>
-<!-- End Footer
-================================================== -->
-
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</body>
+  </body>
 </html>
-

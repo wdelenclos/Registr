@@ -2,7 +2,7 @@
   <main-layout>
     <div class="container">
         <div class="row justify-content-md-center">
-        <div class="card p-4 w-50 align-center">
+        <div class="card mt-4 p-4 w-50 align-center">
         <h1 class="mt-2 h2 text-center">Create your account</h1>
         <form>
             <div class="form-group mt-4">
@@ -16,7 +16,7 @@
 
             <button type="submit" class="btn btn-primary w-100 mt-4">Create now !</button>
         </form>
-            <a class="mt-4 text-center" href="/register">I already have an account yet</a>
+            <a class="mt-4 text-center" href="/login">I already have an account</a>
         </div>
         </div>
     </div>

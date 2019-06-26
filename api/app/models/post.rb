@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
-  validates_presence_of :title, :content
+  validates_presence_of :title, :url , :description , :image
 end

@@ -14,10 +14,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    authorize!(:create)
+    #authorize!(:create)
 
-    @post = Post.new(params.permit(:title, :content))
+    if params[:url]
+    page = MetaInspector.new(params[:url])
+
+
+    @post = Post.new(title: page.title, url: page.url, image: page.images.best, description: page.description)
     @post.save
+    render(json: @post)
+
+    end
   end
 
   def update
@@ -37,6 +44,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :url, :images, :description)
   end
 end

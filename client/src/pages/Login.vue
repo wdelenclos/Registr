@@ -62,7 +62,7 @@
                         this.cta = "Login"
                     }
                     else {
-                        window.localStorage.setItem('RegistrUser', JSON.stringify({token: res.auth_token, email: this.email}))
+                        window.localStorage.setItem('RegistrUser', JSON.stringify({token: res.auth_token, email: this.email, last_login: new Date().getDate()}));
                         window.location = "/dashboard"
                     }
                 })

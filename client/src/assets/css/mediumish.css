@@ -17,6 +17,20 @@ h1, h2, h3{
 	font-family: Poppins, sans-serif;
 	color: #21303F;
 }
+
+select{
+	width: 100%;
+	padding: .5rem .75rem;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #464a4c;
+	background-color: #fff;
+	background-image: none;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: .25rem;
+}
 a {
 	color:#21303F;
 }

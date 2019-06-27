@@ -13,7 +13,7 @@
     </button>
     <div class="container">
         <!-- Begin Logo -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
             <svg width="140" viewBox="0 0 501 109" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 59.5C0 44.3122 12.3122 32 27.5 32L86.6772 32C101.865 32 114.177 44.3122 114.177 59.5V59.5C114.177 74.6878 101.865 87 86.6772 87H27.5C12.3122 87 0 74.6878 0 59.5V59.5Z"
                       fill="url(#paint0_linear)"/>
@@ -58,14 +58,23 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <!-- Begin Menu -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li v-if="!logged" class="nav-item">
                     <v-link class="nav-link"  href="/">Discover</v-link>
                 </li>
-                <li class="nav-item">
+                <li v-if="!logged" class="nav-item">
                       <v-link class="nav-link" href="/login">Login</v-link>
                 </li>
-                <li class="nav-item">
+                <li v-if="!logged" class="nav-item">
                     <v-link class="nav-link"  href="/register">Create account (it's free)</v-link>
+                </li>
+                <li v-if="logged" class="nav-item">
+                    <v-link class="nav-link"  href="/collection">Collections</v-link>
+                </li>
+                <li v-if="logged" class="nav-item">
+                    <v-link class="nav-link"  href="/teams">My Teams</v-link>
+                </li>
+                <li v-if="logged" class="nav-item">
+                    <v-link class="nav-link"  href="/profile">Profile</v-link>
                 </li>
             </ul>
             <!-- End Menu -->
@@ -102,7 +111,18 @@
   export default {
     components: {
       VLink
-    }
+    },
+      computed:{
+          logged() {
+              let token = window.localStorage.getItem('RegistrUser');
+              console.log(token);
+              if (token !== null ){
+                  return true
+              }else{
+                  return false;
+              }
+          },
+      }
   }
 </script>
 

@@ -52,7 +52,7 @@
                 console.log(local);
                 this.user = local.email.split('@')[0];
                 this.email= local.email;
-                this.last_login = local.last_login.getDate()
+                this.last_login = local.last_login
         }
     }
 </script>

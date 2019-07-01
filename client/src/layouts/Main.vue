@@ -115,7 +115,6 @@
       computed:{
           logged() {
               let token = window.localStorage.getItem('RegistrUser');
-              console.log(token);
               if (token !== null ){
                   return true
               }else{

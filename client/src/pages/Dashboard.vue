@@ -4,6 +4,7 @@
     <div class="container">
         <div class="paster">
             <h3 class="sitetitle">Paste a content to save</h3>
+            <p> It's a pleasure to see you, what do you want to save on you Registr today ?</p>
             <form class="form-inline my-2 my-lg-0 mt-3">
                 <input class="form-control mr-sm-2 input-paster" type="text" placeholder="http://url.com">
                 <vue-tags-input
@@ -252,6 +253,12 @@
     .paster input{width: 50%!important}
     .paster h3{
         margin-bottom: 24px;
+    }
+    .paster p{
+        margin-bottom: 24px!important;
+    }
+    .sitetitle{
+        margin-bottom: 8px!important;
     }
 </style>
 <script>

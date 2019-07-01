@@ -46,7 +46,9 @@
     methods: {
             login() {
                 this.cta = "Logging  ...";
-                console.log({email: this.email, password: this.password})
+                let  vm = this;
+                let date = new Date();
+                console.log({email: this.email, password: this.password, last_login: date});
                 fetch('http://localhost:3000/login', {
                     method: 'POST',
                     headers: {
@@ -58,17 +60,17 @@
                 .then(res => res.json())
                 .then((res) => {
                     if(res.error != undefined){
-                        this.errorMessage = "This account does not exist";
-                        this.cta = "Login"
+                        vm.errorMessage = "Invalid credentials";
+                        vm.cta = "Login"
                     }
                     else {
-                        window.localStorage.setItem('RegistrUser', JSON.stringify({token: res.auth_token, email: this.email}))
+                        window.localStorage.setItem('RegistrUser', JSON.stringify({token: res.auth_token, email: this.email, last_login: date}));
                         window.location = "/dashboard"
                     }
                 })
                     .catch(function(error) {
-                         this.errorMessage = "Error: retry later";
-                        this.cta = "Login"
+                        vm.errorMessage = "Internal error, please retry later";
+                        vm.cta = "Login";
                     console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
                     });
             }

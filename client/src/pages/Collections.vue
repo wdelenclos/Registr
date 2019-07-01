@@ -7,7 +7,7 @@
             ================================================== -->
             <section class="recent-posts">
                 <div class="section-title">
-                    <h2 class="mt-5"> <span>Teams</span></h2>
+                    <h2 class="mt-5"> <span>Personals</span></h2>
                 </div>
                 <div class="card-columns listrecent">
 
@@ -56,15 +56,9 @@
             </section>
             <section>
                 <div class="section-title">
-                    <h2 class="mt-5"> <span>Manage</span></h2>
+                    <h2 class="mt-5"> <span>Experience Design Team</span></h2>
                 </div>
-                <label>Create  you own team and invite peoples in it !</label>
-                <br>
-                <button class="btn mt-4" v-on:click="logout">Create a new team</button>
-                <br>
-                <label>Join a team and invite peoples in it !</label>
-                <br>
-                <button class="btn btn-logout mt-4" v-on:click="logout">Join a new team</button>
+                <label>No content to saved inside this collection</label>
             </section>
 
         </div>

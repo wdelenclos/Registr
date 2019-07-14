@@ -68,10 +68,7 @@
                     <v-link class="nav-link"  href="/register">Create account (it's free)</v-link>
                 </li>
                 <li v-if="logged" class="nav-item">
-                    <v-link class="nav-link"  href="/collection">Collections</v-link>
-                </li>
-                <li v-if="logged" class="nav-item">
-                    <v-link class="nav-link"  href="/teams">My Teams</v-link>
+                    <v-link class="nav-link"  href="/collection">My Content</v-link>
                 </li>
                 <li v-if="logged" class="nav-item">
                     <v-link class="nav-link"  href="/profile">Profile</v-link>

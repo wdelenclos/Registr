@@ -5,4 +5,5 @@ export default {
   '/profile': 'Profile',
   '/collection': 'Collections',
   '/dashboard': 'Dashboard',
+  '/teams': 'Teams'
 }

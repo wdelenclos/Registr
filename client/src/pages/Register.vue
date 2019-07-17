@@ -59,7 +59,7 @@
                 .then((res) => {
                     if(res.message === "User created successfully"){
                       this.successMessage = "User created successfully, redirection ..."
-                      var redirect = setTimeout(function() {
+                      let redirect = setTimeout(function() {
                         window.location = "/login"
                       }, 5000);
                       redirect();
@@ -70,7 +70,7 @@
                     
                 })
                     .catch(function(error) {
-                    console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+                        console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
                     });
             }
     }

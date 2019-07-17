@@ -6,6 +6,7 @@
 <!-- Begin Nav
 ================================================== -->
 <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+    <notifications group="notif" />
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -68,7 +69,13 @@
                     <v-link class="nav-link"  href="/register">Create account (it's free)</v-link>
                 </li>
                 <li v-if="logged" class="nav-item">
-                    <v-link class="nav-link"  href="/collection">My Content</v-link>
+                    <v-link class="nav-link"  href="/dashboard">Dashboard</v-link>
+                </li>
+                <li v-if="logged" class="nav-item">
+                    <v-link class="nav-link"  href="/collection">Collections</v-link>
+                </li>
+                <li v-if="logged" class="nav-item">
+                    <v-link class="nav-link"  href="/teams">Teams</v-link>
                 </li>
                 <li v-if="logged" class="nav-item">
                     <v-link class="nav-link"  href="/profile">Profile</v-link>

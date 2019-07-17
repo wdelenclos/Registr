@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_request
-
   def register
     @user = User.create!(user_params)
     if @user.save
@@ -10,8 +9,11 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def joinTeam
+    render(json: params)
+  end
 
+  private
   def user_params
     params.permit(:email, :password)
   end

@@ -17,9 +17,6 @@
                 />
                 <a href="#" class="btn btn-primary">Add it</a>
             </form>
-
-
-
         </div>
 
     <section class="featured-posts">

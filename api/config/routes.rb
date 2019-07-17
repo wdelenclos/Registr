@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   post "register" => "users#register"
   post "login" => "authentication#login"
+  post "search" => "posts#searchWeb"
   get "user/teams" => "teams#get"
   post "users/join/:team" => "users#joinTeam"
 end

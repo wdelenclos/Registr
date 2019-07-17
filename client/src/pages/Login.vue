@@ -9,7 +9,7 @@
            </div>
                 <div class="form-group mt-4">
                     <label for="email">Email address</label>
-                    <input type="email" v-model="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" required="true" v-model="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -60,7 +60,12 @@
                 .then(res => res.json())
                 .then((res) => {
                     if(res.error != undefined){
-                        vm.errorMessage = "Invalid credentials";
+                        this.$notify({
+                            group: 'foo',
+                            title: 'Invalid credential',
+                            text: "Try another email or password",
+                            type: 'error'
+                        });
                         vm.cta = "Login"
                     }
                     else {
@@ -69,7 +74,12 @@
                     }
                 })
                     .catch(function(error) {
-                        vm.errorMessage = "Internal error, please retry later";
+                        this.$notify({
+                            group: 'foo',
+                            title: 'Internal server error',
+                            text: "Try again later",
+                            type: 'error'
+                        });
                         vm.cta = "Login";
                     console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
                     });

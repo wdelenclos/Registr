@@ -1,3 +1,3 @@
 class TeamSerializer < ActiveModel::Serializer
-  attributes :id,:name,:private,:users,:collection
+  attributes :id,:name,:isPrivate,:users,:collection
 end

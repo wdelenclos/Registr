@@ -13,6 +13,18 @@ ____
 $ bundle install
 ```
 
+**Remove the database**:
+
+```console
+$ rake db:drop
+```
+
+**Create the database**:
+
+```console
+$ rake db:create
+```
+
 **Update the database with new data model**:
 
 ```console
@@ -50,7 +62,7 @@ $ rake test
 | DELETE | /posts/:post_id | Delete a post |
 | GET | /collections/ | Get all collections | 
 | POST | /collections/ | Create a collections |```{"name": String "team_id": Number} ```| 
-| POST | /teams/ | Create a team for logged user |```{"name":String, "private": Bool} ```| 
+| POST | /teams/ | Create a team for logged user |```{"name":String, "isPrivate": Bool} ```| 
 | GET | /teams/ | Get all teams | 
 | GET | /user/teams | Get logged user teams | 
 | GET | /teams/join/:team_id | Join team with current logged user | 
@@ -78,44 +90,10 @@ On successful login, `{"auth_token": <token>}` will be returned. This token will
 
 **In order to access the posts and comments, add `-H 'Authorization: <token>'` to the header of every request for CRUD operations.**
 
-The `create`, `update` and `delete` actions can only be executed by users authorized on admin. A default admin user is definded in `db/seeds.rb`. After seeding the database, `{"email": "admin@email.com", "password": "admin123"}` can be used to login as an admin.
+The `create`, `update` and `delete` actions can only be executed by users authorized. 
 
-**Create a new post**:
-
-```console
-$ curl -X POST -H 'Content-type: application/json' -d '{"title": "My title", "content": "My content"}' localhost:3000/posts
-```
-
-**Create a new comment**:
+**POST a new post**:
 
 ```console
-$ curl -X POST -H 'Content-type: application/json' -d '{"name": "YuKitAs", "message": "My message"}' localhost:3000/posts/1/comments
-```
-
-The `name` field is optional with default value `anonym`.
-
-**Update an existing post by id**:
-
-```console
-$ curl -X PUT -H 'Content-type: application/json' -d '{"title": "My new title", "content": "My new content"}' localhost:3000/posts/1
-```
-
-**Update an existing comment by id**:
-
-```console
-$ curl -X PUT -H 'Content-type: application/json' -d '{"name": "YuKitAs", "message": "My new message"}' localhost:3000/posts/2/comments/1
-```
-
-**Delete an existing post by id**:
-
-```console
-$ curl -X DELETE localhost:3000/posts/1
-```
-
-All the comments of this post will be deleted as well.
-
-**Delete an existing comment by id**:
-
-```console
-$ curl -X DELETE localhost:3000/posts/2/comments/1
+$ curl -X POST -H 'Content-type: application/json' -d '{"url": "https://urltoscrap.com", "collection": 567876}' localhost:3000/posts
 ```

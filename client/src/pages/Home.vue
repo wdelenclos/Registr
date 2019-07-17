@@ -57,11 +57,10 @@
 
             </div>
             <div class="col-lg-4 mt-5 align-items-center">
-                <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">&quot;Simplicity is the ultimate competitive weapon&quot; Ken Segall<a href="https://t.co/3hrjBWfsmz">https://t.co/3hrjBWfsmz</a></p>&mdash; Wladimir Delenclos (@WDelenclos) <a href="https://twitter.com/WDelenclos/status/1050707735690457088?ref_src=twsrc%5Etfw">12 octobre 2018</a></blockquote>
-
+                <blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Une histoire qui s&#39;écrit <a href="https://twitter.com/hashtag/ParisEstMagique?src=hash&amp;ref_src=twsrc%5Etfw">#ParisEstMagique</a> <a href="https://twitter.com/hashtag/CFCPSG?src=hash&amp;ref_src=twsrc%5Etfw">#CFCPSG</a></p>&mdash; Dylan Settbon (@DSettbon) <a href="https://twitter.com/DSettbon/status/575798276827574272?ref_src=twsrc%5Etfw">March 11, 2015</a></blockquote>
             </div>
             <div class="col-lg-4 mt-5 align-items-center">
-                <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">&quot;Simplicity is the ultimate competitive weapon&quot; Ken Segall<a href="https://t.co/3hrjBWfsmz">https://t.co/3hrjBWfsmz</a></p>&mdash; Wladimir Delenclos (@WDelenclos) <a href="https://twitter.com/WDelenclos/status/1050707735690457088?ref_src=twsrc%5Etfw">12 octobre 2018</a></blockquote>
+                <blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Ah mais voilà enfin un peu de créativité ! <a href="https://t.co/O7MaC3wgT2">https://t.co/O7MaC3wgT2</a></p>&mdash; Jérôme de Verdière (@jdverdiere) <a href="https://twitter.com/jdverdiere/status/1151184901787529223?ref_src=twsrc%5Etfw">July 16, 2019</a></blockquote>
 
             </div>
 
@@ -89,7 +88,7 @@
           logged() {
               let token = window.localStorage.getItem('RegistrUser');
               console.log(token);
-              if (token !== null ){
+              if(token !== null ){
                   return true
               }else{
                   return false;

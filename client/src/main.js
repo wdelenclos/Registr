@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import routes from './routes'
+import Notifications from 'vue-notification'
 
+Vue.use(Notifications);
 
 const app = new Vue({
   el: '#app',

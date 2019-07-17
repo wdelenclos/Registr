@@ -27,6 +27,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def searchWeb
+    if params[:title]
+
+     #response = EventMachine::HttpRequest.new('http://google.com/').get :query => {'q' => params[:title]}
+     require 'open-uri'
+     key = "AIzaSyAP2mZNli2bH0cpcH6cHUPePJe_Epw4tfA"
+     url = "https://www.googleapis.com/customsearch/v1?key=" + key + "&cx=017576662512468239146:omuauf_lfve&q="+ params[:title]
+     response = open(url).read
+
+    render(json: response)
+    end
+  end
+
   def update
     authorize!(:update)
 

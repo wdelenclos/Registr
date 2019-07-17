@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   post "register" => "users#register"
   post "login" => "authentication#login"
   get "user/teams" => "teams#get"
-  post "users/join/:team" => "users#joinTeam"
+  get "teams/join/:team_id" => "teams#join"
 end

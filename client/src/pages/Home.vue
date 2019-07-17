@@ -8,11 +8,11 @@
         <p class="lead">
             Registr is a smart posts aggregator and library for your team.
         </p>
-        <form class="form-inline my-2 my-lg-0 mt-3">
+        <form v-if="!logged" class="form-inline my-2 my-lg-0 mt-3">
             <input class="form-control mr-sm-2" type="text" placeholder="Enter your email">
             <a href="#" class="btn subscribe">Let's started</a>
         </form>
-
+        <v-link v-if="logged" class="btn subscribe" href="/dashboard">Go to dashboard</v-link>
         <img class="heroLead" src="assets/img/hero.svg">
     </div>
     <!-- End Site Title
@@ -70,13 +70,31 @@
 </section>
   </main-layout>
 </template>
-
+<style>
+    .subscribe{
+        transition-duration: .2s;
+        color: #FFF!important
+    }
+</style>
 <script>
   import MainLayout from '../layouts/Main.vue'
+  import VLink from '../components/VLink.vue'
 
   export default {
     components: {
+        VLink,
       MainLayout
-    }
+    },
+      computed:{
+          logged() {
+              let token = window.localStorage.getItem('RegistrUser');
+              console.log(token);
+              if (token !== null ){
+                  return true
+              }else{
+                  return false;
+              }
+          },
+      }
   }
 </script>

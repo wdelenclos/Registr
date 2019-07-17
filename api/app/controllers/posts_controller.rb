@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     render(json: @posts)
   end
 
+
   def show
     authorize!(:read)
 
@@ -19,8 +20,7 @@ class PostsController < ApplicationController
     if params[:url]
     page = MetaInspector.new(params[:url])
 
-
-    @post = Post.new(title: page.title, url: page.url, image: page.images.best, description: page.description)
+    @post = Post.new(title: page.title, url: page.url, image: page.images.best, description: page.description , collection_id: params[:collection_id])
     @post.save
     render(json: @post)
 
@@ -57,6 +57,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :images, :description)
+    params.permit(:title, :url, :images, :description)
   end
 end

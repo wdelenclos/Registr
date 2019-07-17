@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.text(:url)
       t.text(:image)
       t.text(:description)
+      t.references :collection, foreign_key: true
 
       t.timestamps
     end

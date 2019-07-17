@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20190716094844) do
     t.text "url"
     t.text "image"
     t.text "description"
+    t.integer "collection_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_posts_on_collection_id"
   end
 
   create_table "team_users", force: :cascade do |t|

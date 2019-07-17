@@ -30,7 +30,8 @@
 
 <script>
   import MainLayout from '../layouts/Main.vue'
-
+  import {createTeam, getRelated} from '../provider/team.js';
+  import {createCollection} from '../provider/collection.js';
   export default {
     components: {
       MainLayout
@@ -46,6 +47,9 @@
     },
    methods: {
             register() {
+                let user = {email: this.email, password: this.password};
+                const vm = this;
+                let date = new Date();
                 this.cta = "Register  ...";
                 fetch('http://localhost:3000/register', {
                     method: 'POST',
@@ -53,19 +57,70 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({email: this.email, password: this.password})
+                    body: JSON.stringify(user)
                 })
                 .then(res => res.json())
                 .then((res) => {
                     if(res.message === "User created successfully"){
-                      this.successMessage = "User created successfully, redirection ..."
-                      let redirect = setTimeout(function() {
-                        window.location = "/login"
-                      }, 5000);
-                      redirect();
+                        this.$notify({
+                            group: 'foo',
+                            title: 'User created',
+                            text: this.email,
+                            type: 'success'
+                        });
+                        fetch('http://localhost:3000/login', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(user)
+                        })
+                            .then(res => res.json())
+                            .then((res) => {
+                                if(res.error !== undefined){
+                                    this.$notify({
+                                        group: 'foo',
+                                        title: 'Redirection error',
+                                        text: res.error,
+                                        type: 'error'
+                                    });
+                                    vm.errorMessage = "Invalid credentials";
+                                    vm.cta = "Login"
+                                }
+                                else {
+                                    let tok = res.auth_token;
+                                    console.log(tok);
+                                    window.localStorage.setItem('RegistrUser', JSON.stringify({token: tok, email: this.email, last_login: date}));
+                                    createTeam(tok, "My first team", true).then(function(){
+                                        getRelated(tok).then(re => {
+                                            console.log(re);
+                                            createCollection(tok, "My first collection", re[0].id).then(function(){
+                                                window.location = "/dashboard"
+                                            })
+                                        })
+                                    });
+
+                                }
+                            })
+                            .catch(error =>  {
+                                this.$notify({
+                                    group: 'foo',
+                                    title: 'Server error',
+                                    text: error,
+                                    type: 'error'
+                                });
+                                vm.cta = "Login";
+                                console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+                            });
                     }
                     else{
-                        this.errorMessage = "Impossible to create account. This email is probably already used"
+                        this.$notify({
+                            group: 'foo',
+                            title: 'Impossible to account',
+                            text: 'Impossible to create account. This email is probably already used',
+                            type: 'warn'
+                        });
                     }
                     
                 })

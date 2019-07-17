@@ -15,12 +15,23 @@ class TeamsController < ApplicationController
     end
 
     def create
-        @team = current_user.teams.create(name: params['name'],private: params['private'])
+        @team = current_user.teams.create(name: params['name'],isPrivate: params['isPrivate'])
+        render(json: @team)
+    end
+
+    def show
+        @team = Team.find(params[:id])
+        render(json: @team)
+    end
+
+    def destroy
+        @team = Team.find(params[:id])
+        @team.destroy
         render(json: @team)
     end
     
     def team_params
-        params.permit(:name, :private)
+        params.permit(:name, :isPrivate)
     end
 end
 

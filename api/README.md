@@ -48,18 +48,12 @@ $ rake test
 | POST | /posts | Create a post | 
 | PUT | /posts/:post_id | Update a post |
 | DELETE | /posts/:post_id | Delete a post |
-| GET | /posts/:post_id/comments | List all comments of a post |
-| GET | /posts/:post_id/comments/:comment_id | Show a single comment |
-| POST | /posts/:post_id/comments | Create a comment |
-| PUT | /posts/:post_id/comments/:comment_id | Update a comment |
-| DELETE | /posts/:post_id/comments/:comment_id | Delete a comment | 
-| POST | /posts/:post_id/comments | Create a comment |
 | GET | /collections/ | Get all collections | 
 | POST | /collections/ | Create a collections |```{"name": String "team_id": Number} ```| 
 | POST | /teams/ | Create a team for logged user |```{"name":String, "private": Bool} ```| 
 | GET | /teams/ | Get all teams | 
 | GET | /user/teams | Get logged user teams | 
-
+| GET | /teams/join/:team_id | Join team with current logged user | 
 
 
 ## Use Case Examples

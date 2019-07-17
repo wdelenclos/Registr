@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post "login" => "authentication#login"
   post "search" => "posts#searchWeb"
   get "user/teams" => "teams#get"
-  post "users/join/:team" => "users#joinTeam"
+  get "teams/join/:team_id" => "teams#join"
 end

@@ -6,50 +6,49 @@
    ================================================== -->
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div class="col-12">
                     <div class="paster">
-                        <h2 class="sitetitle mb-4">{{ teamName }}</h2>
-
-                        <p>Join ID : {{ teamId }} </p>
-
-                        <hr/>
-
-                        <h5> {{ teamUsers.length }} users</h5>
-                        <span class="author-meta" v-for="user in teamUsers">
-		              <span class="post-name">{{user.email}}</span><br>
-		              <span class="post-date">Last activity: {{ user.updated_at }}</span>
-		              </span>
+                        <h2 class="sitetitle">{{ collectionName }} <button @click="deleCol(collectionId)" class="btn btn-sm btn-error ml-5">Remove collection</button></h2>
 
 
                     </div>
-
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="paster">
-                        <h3>Manage</h3>
-                        <a href="#" @click="deleteTeam" class="btn btn-sm btn-error">Delete
-                            team</a>
-                    </div>
-                    <!-- Begin List Posts
-                    ================================================== -->
 
                 </div>
                 <div class="col-12">
                     <section class="recent-posts card p-5">
                         <div class="section-title">
-                            <h2 class=""><span>{{ teamCollections.length }} collections</span>  <a href="/new" class="btn btn-sm btn-primary ml-4">+ New collection</a> </h2>
+                            <h2 class=""><span>{{ collectionPosts.length }} posts</span></h2>
                         </div>
                         <div class="card-columns listrecent">
                             <!-- begin post -->
-                            <span v-for="collection in teamCollections">
-                            <div class="card clickable" @click="redirect(collection.id)">
-                                <div class="card-block">
-                                    <h2 class="card-title">{{ collection.name }}</h2>
-                                    <p class="card-text">Created at {{ collection.created_at }}
-                                    </p>
+                            <!-- begin post -->
+                            <div class="card" v-for="post in collectionPosts">
+                                <div class="row">
+                                    <div class="col-md-5 wrapthumbnail">
+                                        <a href="post.html">
+                                            <img class="thumbnail" :src="post.image" width="100%"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-block">
+                                            <h2 class="card-title"><a href="post.html">{{post.title}}</a></h2>
+                                            <h4 class="card-text">{{post.description}}</h4>
+                                            <div class="metafooter">
+                                                <div class="wrapfooter">
+                                    <span class="meta-footer-thumb">
+                                    </span>
+                                                    <span class="author-meta">
+                                    <span class="post-date">{{post.created_at.slice(0, 10)}}</span> <button @click="deletePost(post.id)" class="btn btn-sm btn-secondary">✖</button>
+                                    </span>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </span>
+                            <!-- end post -->
 
 
                         </div>
@@ -64,7 +63,8 @@
     import MainLayout from '../layouts/Main.vue'
     import VLink from '../components/VLink.vue'
     import VueTagsInput from '@johmun/vue-tags-input';
-    import {deleteOneTeam, getOneTeam} from '../provider/team.js';
+    import {deleteOnePost} from '../provider/posts.js';
+    import {getOneCollection, deleteCollection} from '../provider/collection.js';
 
     const local = JSON.parse(window.localStorage.getItem('RegistrUser'));
 
@@ -76,27 +76,30 @@
         },
         data() {
             return {
-                teamId: '',
-                teamName: '',
-                teamUsers: [],
-                teamCollections: []
+                collectionId: '',
+                collectionName: '',
+                collectionPosts: [],
+                collectionTeam: []
             }
-        },
-        created: function () {
-            this.teamId = JSON.parse(window.sessionStorage.getItem('RegistrTeamHistory')).id;
-            getOneTeam(local.token, this.teamId).then(res => {
-                this.teamName = res.name;
-                this.teamId = res.id;
-                this.teamUsers = res.users;
-                this.teamCollections = res.collection;
-            });
         },
         methods: {
-            deleteTeam: function (e) {
-                e.preventDefault();
-                deleteOneTeam(local.token, this.teamId);
-                window.location = "dashboard";
-            }
+            deletePost: function (id) {
+                deleteOnePost(local.token, id);
+                window.location = "/collections";
+            },
+            deleCol: function (id) {
+                deleteCollection(local.token, id);
+                window.location = "/dashboard";
+            },
+        },
+        created: function () {
+            this.collectionId = JSON.parse(window.sessionStorage.getItem('RegistrCollectionHistory')).id;
+            getOneCollection(local.token, this.collectionId).then(res => {
+                this.collectionName = res.name;
+                this.collectionId = res.id;
+                this.collectionPosts = res.posts;
+                this.collectionTeam = res.team;
+            });
         }
     }
 </script>

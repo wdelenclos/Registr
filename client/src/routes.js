@@ -3,8 +3,11 @@ export default {
   '/login': 'Login',
   '/register': 'Register',
   '/profile': 'Profile',
-  '/collection': 'Collections',
+  '/collections': 'Collections',
+  '/collection': 'Collection',
   '/dashboard': 'Dashboard',
   '/teams': 'Teams',
   '/team': 'Team',
+  '/post': 'Post',
+  '/new': 'NewCollection',
 }

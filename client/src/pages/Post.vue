@@ -1,6 +1,5 @@
 <template>
     <main-layout>
-        <img src="/assets/img/bg.jpg" width="100%" style="position: absolute; top: 0; left: 0;">
         <!-- Begin Site Title
 
    ================================================== -->
@@ -8,18 +7,17 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="paster">
-                        <h2 class="sitetitle mb-4">{{ teamName }}</h2>
+                        <h2 class="sitetitle mb-5">{{ teamName }}</h2>
 
                         <p>Join ID : {{ teamId }} </p>
 
-                        <hr/>
+<hr/>
 
-                        <h5> {{ teamUsers.length }} users</h5>
+                      <h5>  {{ teamUsers.length }} users</h5>
                         <span class="author-meta" v-for="user in teamUsers">
 		              <span class="post-name">{{user.email}}</span><br>
 		              <span class="post-date">Last activity: {{ user.updated_at }}</span>
 		              </span>
-
 
                     </div>
 
@@ -35,9 +33,9 @@
 
                 </div>
                 <div class="col-12">
-                    <section class="recent-posts card p-5">
+                    <section class="recent-posts">
                         <div class="section-title">
-                            <h2 class=""><span>{{ teamCollections.length }} collections</span>  <a href="/new" class="btn btn-sm btn-primary ml-4">+ New collection</a> </h2>
+                            <h2 class="mt-5"><span>{{ teamCollections.length }} collections</span></h2>
                         </div>
                         <div class="card-columns listrecent">
                             <!-- begin post -->

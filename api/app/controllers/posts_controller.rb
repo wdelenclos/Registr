@@ -48,10 +48,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    authorize!(:destroy)
-
     @post = Post.find(params[:id])
     @post.destroy
+    render(json: @post)
   end
 
   private

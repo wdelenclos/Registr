@@ -1,34 +1,13 @@
 
-function getCollections(token) {
-    return fetch('http://localhost:3000/collections', {
-        method: 'GET',
+function createPost(token, url, collection_id) {
+    return fetch('http://localhost:3000/posts', {
+        method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Authorization': 'Basic ' + token,
             'Content-Type': 'application/json'
         },
-    })
-        .then(res => res.json())
-        .then((res) => {
-            if (res.error !== undefined) {
-                return Promise.reject(res.error)
-            }
-            else {
-                return Promise.resolve(res)
-            }
-        })
-        .catch(function (error) {
-            return Promise.reject(error)
-        });
-};
-function getOneCollection(token, id) {
-    return fetch('http://localhost:3000/collections/' + id, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Basic ' + token,
-            'Content-Type': 'application/json'
-        },
+        body: JSON.stringify({"url": url, "collection_id": collection_id})
     })
         .then(res => res.json())
         .then((res) => {
@@ -44,15 +23,15 @@ function getOneCollection(token, id) {
         });
 };
 
-function createCollection(token, name, team) {
-    return fetch('http://localhost:3000/collections', {
-        method: 'POST',
+
+function getPosts(token) {
+    return fetch('http://localhost:3000/posts', {
+        method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Authorization': 'Basic ' + token,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({"name": name, "team_id": parseInt(team)})
     })
         .then(res => res.json())
         .then((res) => {
@@ -68,9 +47,8 @@ function createCollection(token, name, team) {
             return Promise.reject(error)
         });
 };
-
-function deleteCollection(token, id) {
-    return fetch('http://localhost:3000/collections/'+id, {
+function deleteOnePost(token, id) {
+    return fetch('http://localhost:3000/posts/' + id, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -80,8 +58,6 @@ function deleteCollection(token, id) {
     })
         .then(res => res.json())
         .then((res) => {
-
-            console.log(res);
             if (res.error !== undefined) {
                 return Promise.reject(res.error)
             }
@@ -95,5 +71,4 @@ function deleteCollection(token, id) {
         });
 };
 
-
-export {createCollection, getCollections, getOneCollection,deleteCollection}
+export {createPost, getPosts, deleteOnePost}

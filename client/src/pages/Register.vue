@@ -92,10 +92,10 @@
                                     let tok = res.auth_token;
                                     console.log(tok);
                                     window.localStorage.setItem('RegistrUser', JSON.stringify({token: tok, email: this.email, last_login: date}));
-                                    createTeam(tok, "My first team", true).then(function(){
+                                    createTeam(tok, "Personal", true).then(function(){
                                         getRelated(tok).then(re => {
                                             console.log(re);
-                                            createCollection(tok, "My first collection", re[0].id).then(function(){
+                                            createCollection(tok, "Personal collection", re[0].id).then(function(){
                                                 window.location = "/dashboard"
                                             })
                                         })

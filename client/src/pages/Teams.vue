@@ -1,39 +1,19 @@
 <template>
-    <main-layout style="background-color: #f7fafd; padding: 40px">
+    <main-layout style="background-color: #fff; padding: 40px">
         <!-- Begin Site Title
    ================================================== -->
         <div class="container">
-            <div class="paster">
-                <h3 class="sitetitle">Join a team</h3>
-                <div class="row">
-                    <div class="col-sm-6 col-12 ">
-                        <p>Search a team and join it </p>
-                        <form class="form-inline my-2 my-lg-0 mt-3">
-                            <input class="form-control mr-sm-2 input-paster" type="text" v-model="teamId"
-                                   placeholder="Type a team ID">
-                            <button v-on:click="executejoin" class="btn btn-primary">Join</button>
-                        </form>
-                    </div>
-                    <div class="col-sm-6  col-12 " style="border-left: solid 1px #fefefe">
-                        <p>Create a team </p>
-                        <form class="form-inline my-2 my-lg-0 mt-3">
-                            <input class="form-control mr-sm-2 input-paster" type="text" v-model="teamName"
-                                   placeholder="Type a team name">
-                            <button v-on:click="executeCreate" class="btn btn-primary">Create</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- Begin List Posts
-            ================================================== -->
-            <section class="recent-posts">
-                <div class="section-title">
-                    <h2 class="mt-5"><span>My teams</span></h2>
-                </div>
-                <div class="card-columns listrecent">
+            <div class="row">
+            <div class="col-sm-8 col-12">
+                <!-- Begin List Posts
+           ================================================== -->
+                <section class="recent-posts">
+                    <h3 class="mb-4">Teams</h3>
+                    <hr/>
+                    <div class="card-columns listrecent mt-4">
 
-                    <!-- begin post -->
-                    <span v-for="team in teams">
+                        <!-- begin post -->
+                        <span v-for="team in teams">
                         <div class="card clickable" @click="redirect(team.id)">
                             <div class="card-block">
                                 <h2 class="card-title">{{ team.name }}</h2>
@@ -43,8 +23,36 @@
                             </div>
                         </div>
                     </span>
+                    </div>
+                </section>
+            </div>
+                <div class="col-sm-4 col-12">
+            <div class="paster">
+                <h3 class="sitetitle">Join a team</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <p>Search a team and join it </p>
+                        <form class="form-inline my-2 my-lg-0 mt-3">
+                            <input class="form-control mr-sm-2 input-paster" type="text" v-model="teamId"
+                                   placeholder="Type a team ID">
+                            <button v-on:click="executejoin" class="btn btn-primary">Join</button>
+                        </form>
+                        <hr/>
+                    </div>
+
+                    <div class="col-12" style="border-left: solid 1px #fefefe">
+                        <p>Create a team </p>
+                        <form class="form-inline my-2 my-lg-0 mt-3">
+                            <input class="form-control mr-sm-2 input-paster" type="text" v-model="teamName"
+                                   placeholder="Type a team name">
+                            <button v-on:click="executeCreate" class="btn btn-primary">Let's go</button>
+                        </form>
+                    </div>
                 </div>
-            </section>
+            </div>
+                </div>
+            </div>
+
         </div>
     </main-layout>
 </template>
@@ -206,7 +214,7 @@
     }
 
     .paster input {
-        width: 70% !important
+        width: 60% !important
     }
 
     .paster h3 {

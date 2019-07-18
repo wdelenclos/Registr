@@ -71,7 +71,7 @@
                             <v-link class="nav-link" href="/dashboard">Dashboard</v-link>
                         </li>
                         <li v-if="logged" class="nav-item">
-                            <v-link class="nav-link" href="/collection">Collections</v-link>
+                            <v-link class="nav-link" href="/collections">Collections</v-link>
                         </li>
                         <li v-if="logged" class="nav-item">
                             <v-link class="nav-link" href="/teams">Teams</v-link>

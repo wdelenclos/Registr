@@ -1,5 +1,5 @@
 <template>
-    <main-layout style="background-color: #f7fafd; padding: 40px">
+    <main-layout style="background-color: #fff; padding: 40px">
         <!-- Begin Site Title
    ================================================== -->
         <div class="container">

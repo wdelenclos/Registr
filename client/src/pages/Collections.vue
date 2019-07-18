@@ -1,25 +1,24 @@
 <template>
-    <main-layout style="background-color: #f7fafd; padding: 40px">
+    <main-layout style="background-color: #fff; padding: 40px">
         <!-- Begin Site Title
    ================================================== -->
         <div class="container">
+            <h3 class="mb-4">Collections</h3>
+            <hr/>
             <!-- Begin List Posts
             ================================================== -->
-            <section class="recent-posts" v-for="team in teams">
-                <div class="section-title">
-                    <h2 class="mt-5"><span>{{ team.name}}</span> </h2>
-                </div>
-                <div class="card-columns listrecent">
+            <section class="recent-posts card p-5 mt-5" v-for="team in teams">
+                <h4 class="mb-5"><span class="mr-4">{{team.name}}</span>   <a href="/new" class="btn btn-primary">+ New collection</a> </h4>
 
+                <div class="card-columns listrecent">
                     <!-- begin post -->
                     <div class="card" v-for="collection in team.collection">
                         <div class="card-block">
-                            <h2 class="card-title"><a href="post.html">{{collection.name}}</a></h2>
-                            <h4 class="card-text">4 elements inside it.</h4>
+                            <h2 class="card-title"><a class="clickable" @click="redirect(collection.id)">{{collection.name}}</a></h2>
                         </div>
                     </div>
                     <!-- end post -->
-                    <a href="#" class="btn btn-secondary">Create a collection</a>
+
                 </div>
             </section>
 
@@ -52,11 +51,16 @@
             logout: function () {
                 window.localStorage.removeItem('RegistrUser');
                 window.location = "/"
+            },
+            redirect: function(el){
+                console.log(el);
+                window.localStorage.removeItem('RegistrCollectionHistory');
+                window.sessionStorage.setItem('RegistrCollectionHistory', "{\"route\": \"collection\", \"id\": "+el+"}");
+                window.location = "/collection"
             }
         },
         created: function () {
             let local = JSON.parse(window.localStorage.getItem('RegistrUser'));
-            console.log(local);
             getRelated(local.token).then(res => {
                 this.teams = res.map(function (res) {
                     return {
@@ -128,6 +132,9 @@
         margin-bottom: 24px !important;
     }
 
+    .clickable{
+        cursor: pointer;
+    }
     label {
         color: #78868c;
     }

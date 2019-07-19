@@ -124,7 +124,7 @@
 <script>
     import MainLayout from '../layouts/Main.vue'
     import VueTagsInput from '@johmun/vue-tags-input';
-    import {getCollections} from '../provider/collection.js';
+    import {getUserCollections} from '../provider/collection.js';
     import {createPost,getPosts} from '../provider/posts.js';
 
     export default {
@@ -189,8 +189,7 @@
         },
         created: function () {
             let local = JSON.parse(window.localStorage.getItem('RegistrUser'));
-            getCollections(local.token).then(res => {
-                console.log(res);
+            getUserCollections(local.token).then(res => {
                 this.collections = res;
                 this.selected = this.collections[0].id
             });

@@ -69,7 +69,7 @@ function createTeam(token, name, status) {
 };
 function joinTeam(token, team_id) {
     return fetch('http://localhost:3000/teams/join/' + team_id, {
-        method: 'GET',
+        method: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Authorization': 'Basic ' + token,

@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-block">
-                                            <h2 class="card-title"><a href="post.html">{{post.title}}</a></h2>
+                                            <h2 class="card-title"><a :href="post.url" target="_blank">{{post.title}}</a></h2>
                                             <h4 class="card-text">{{post.description}}</h4>
                                             <div class="metafooter">
                                                 <div class="wrapfooter">

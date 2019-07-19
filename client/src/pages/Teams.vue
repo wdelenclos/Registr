@@ -95,7 +95,23 @@
                 e.preventDefault();
                 if (this.teamId !== null && this.teamId !== "") {
                     joinTeam(local.token, this.teamId).then(res => {
-                        console.log(res)
+                        this.$notify({
+                            group: 'foo',
+                            title: 'Team joined',
+                            text: "Team "+this.teamId+" joigned :)",
+                            type: 'success'
+                        });
+                        this.teamId = "";
+                        getRelated(local.token).then(res => {
+                            this.teams = res.map(function (res) {
+                                return {
+                                    'name': res.name,
+                                    'users': res.users,
+                                    'collection': res.collection,
+                                    id: res.id
+                                }
+                            })
+                        });
                     }).catch(function (err) {
                         this.$notify({
                             group: 'foo',

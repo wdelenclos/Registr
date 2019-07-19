@@ -10,7 +10,8 @@ class TeamsController < ApplicationController
 
     def join
         @team = Team.find(params['team_id'])
-        @team.users.create(id: current_user.id, email: current_user.email, created_at: current_user.created_at, updated_at: current_user.updated_at)
+        @user = User.find(current_user.id)
+        @team.users << @user
         render(json: @team)
     end
 

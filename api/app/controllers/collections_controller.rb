@@ -4,6 +4,10 @@ class CollectionsController < ApplicationController
         render(json: @collections)
     end
 
+    def get
+         render(json: current_user.collections)
+    end
+
     def show
         @collections = Collection.find(params[:id])
         render(json: @collections)

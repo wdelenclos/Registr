@@ -21,6 +21,35 @@ function getCollections(token) {
             return Promise.reject(error)
         });
 };
+function getUserCollections(token) {
+    return fetch('http://localhost:3000/user/teams', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Basic ' + token,
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(res => res.json())
+        .then((res) => {
+            if (res.error !== undefined) {
+                return Promise.reject(res.error)
+            }
+            else {
+                let resp = [];
+                console.log(res);
+                for (let i = 0; i < res.length; i ++){
+                    for(let j = 0; j < res[i].collection.length; j++){
+                        resp.push(res[i].collection[j])
+                    }
+                }
+                return Promise.resolve(resp)
+            }
+        })
+        .catch(function (error) {
+            return Promise.reject(error)
+        });
+};
 function getOneCollection(token, id) {
     return fetch('http://localhost:3000/collections/' + id, {
         method: 'GET',
@@ -96,4 +125,4 @@ function deleteCollection(token, id) {
 };
 
 
-export {createCollection, getCollections, getOneCollection,deleteCollection}
+export {createCollection, getCollections, getOneCollection,deleteCollection,getUserCollections}
